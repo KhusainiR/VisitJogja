@@ -3,14 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/VisitApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/asd.xml" value="0.22135416666666666" />
         <entry key="..\:/VisitApp/app/src/main/res/drawable/bg_container.xml" value="0.34814814814814815" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/bottom_navigation_menu.xml" value="0.3769230769230769" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/color_state_white_1.xml" value="0.3769230769230769" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/VisitApp/app/src/main/res/drawable/shape.xml" value="0.36203703703703705" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/shape_fill_round.xml" value="0.3769230769230769" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/shape_outline.xml" value="0.3769230769230769" />
+        <entry key="..\:/VisitApp/app/src/main/res/drawable/shape_round.xml" value="0.22135416666666666" />
         <entry key="..\:/VisitApp/app/src/main/res/layout/activity_detail.xml" value="0.176" />
         <entry key="..\:/VisitApp/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/VisitApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_profil.xml" value="0.2" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_profil.xml" value="0.264" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/VisitApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/activity_ulasan.xml" value="0.264" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/menu/bottom_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/menu/item_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/VisitApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
+        <entry key="..\:/VisitApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
       </map>
     </option>
   </component>

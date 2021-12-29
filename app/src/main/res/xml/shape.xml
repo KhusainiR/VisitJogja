@@ -1,4 +1,5 @@
-<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<?xml version ="1.0" encoding ="utf-8"?>
+<!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
 <actions>
     <!--    Example Action -->
     <!--    <action intentName="Intent name (actions.intent.*)"> -->

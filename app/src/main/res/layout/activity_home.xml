@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/Montserrat_SemiBold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -40,7 +40,7 @@
                     android:id="@+id/judul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/Montserrat_Medium"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Wisata Daerah Istimewa Yogyakarta"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/judul"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/Montserrat_Medium"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Wisata Daerah Istimewa Yogyakarta"
                     android:textColor="@color/white"
                     android:textSize="12sp" />
@@ -64,7 +64,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="150dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/shape"
+                android:background="@drawable/shape_round"
                 android:elevation="8dp">
 
                 <TextView
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
-                    android:fontFamily="@font/Montserrat_Regular"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="@string/search_text"
                     android:textColor="@color/white" />
 
@@ -92,7 +92,7 @@
                 android:id="@+id/kategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/Montserrat_Bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Kategori"
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
@@ -130,7 +130,7 @@
                     android:gravity="center_horizontal"
                     android:text="Pantai"
                     android:textSize="12sp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -159,7 +159,7 @@
                     android:gravity="center_horizontal"
                     android:text="Air Terjun"
                     android:textSize="12sp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -189,7 +189,7 @@
                     android:text="Museum"
                     android:textAllCaps="false"
                     android:textSize="12sp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -218,7 +218,7 @@
                     android:gravity="center_horizontal"
                     android:text="Candi"
                     android:textSize="12sp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -236,7 +236,7 @@
                 android:id="@+id/destinasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/Montserrat_Bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Destinasi Wisata Populer"
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
@@ -274,7 +274,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:text="Pantai Parangtritis"
                     android:textSize="12sp" />
 
@@ -282,7 +282,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/Montserrat_Regular"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="Lokasi Wisata"
                     android:textSize="10sp" />
 
@@ -323,7 +323,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/Montserrat_SemiBold"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:text="Candi Prambanan"
                     android:textSize="12sp" />
 
@@ -331,7 +331,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/Montserrat_Regular"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="Lokasi Wisata"
                     android:textSize="10sp" />
 
