@@ -146,7 +146,7 @@ public class login_activity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(login_activity.this, MainActivity.class).putExtra("data", loginResponse.getUsername()));
+                            startActivity(new Intent(login_activity.this, MainActivity.class).putExtra("data", loginResponse.getUsername() ));
                         }
                     }, 700);
 

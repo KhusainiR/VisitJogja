@@ -128,6 +128,7 @@
         android:layout_marginRight="32dp"
         android:background="@drawable/shape_fill_round"
         android:text="Daftar"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/ln"
         app:layout_constraintEnd_toEndOf="@+id/ln"
         app:layout_constraintStart_toStartOf="@id/ln"/>

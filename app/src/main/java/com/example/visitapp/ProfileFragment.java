@@ -64,7 +64,7 @@ public class ProfileFragment extends Fragment {
 
 
         ///Recycler View
-        ulasanRecycleview =(RecyclerView)getView().findViewById(R.id.ulasanRecyclerview);
+//        ulasanRecycleview =(RecyclerView)getView().findViewById(R.id.ulasanRecyclerview);
 
         adapter = new RecyclerViewAdapter();
         ulasanRecycleview.setAdapter(adapter);
@@ -74,8 +74,18 @@ public class ProfileFragment extends Fragment {
 
 
         //set data ke activity
-        username.setText(sharedPrefManager.getUsername());
-        password.setText(sharedPrefManager.getPassword());
+        Intent intent = (Intent) getActivity().getIntent();
+        if(intent.getExtras() != null){
+
+            String passedUsername = intent.getStringExtra("data");
+            username.setText(passedUsername);
+        }
+
+
+
+
+
+
 
         String namaImage =(sharedPrefManager.getFoto()) ;
         String uri = "@drawable/"+namaImage;  // where myresource (without the extension) is the file

@@ -89,15 +89,15 @@
                             android:textColor="@color/primary"
                             android:textSize="12sp" />
 
-                        <TextView
-                            android:id="@+id/tvNomor"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:text="Nomor Telepon User"
-                            android:textColor="@color/primary"
-                            android:textSize="12sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvNomor"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:text="Nomor Telepon User"-->
+<!--                            android:textColor="@color/primary"-->
+<!--                            android:textSize="12sp" />-->
 
                         <Button
                             android:id="@+id/btnEdit"
@@ -167,15 +167,15 @@
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:padding="10dp"
-            android:id="@+id/ulasanRecyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:padding="10dp"-->
+<!--            android:id="@+id/ulasanRecyclerview"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">-->
 
 
-        </androidx.recyclerview.widget.RecyclerView>
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
 
 
     </LinearLayout>

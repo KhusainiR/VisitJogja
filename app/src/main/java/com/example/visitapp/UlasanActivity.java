@@ -46,7 +46,7 @@ public class UlasanActivity extends AppCompatActivity {
         lokasi = findViewById(R.id.lokasi);
         review = findViewById(R.id.review);
         btnSubmit = findViewById(R.id.btnSubmit);
-//        idWisata = findViewById(R.id.idWisata);
+        idWisata = findViewById(R.id.idWisata);
         idUser = findViewById(R.id.idUser);
 
         String namaImage =(wisata.getFoto()) ;
@@ -58,19 +58,21 @@ public class UlasanActivity extends AppCompatActivity {
 
         judul.setText(wisata.getJudul());
         lokasi.setText(wisata.getLokasi());
-//        idWisata.setText(getString(wisata.getId()));
+        idWisata.setText(wisata.getLokasi());
         idUser.setText(sharedPrefManager.getId());
+        idWisata.setVisibility(View.INVISIBLE);
+        idUser.setVisibility(View.INVISIBLE);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ulasan = new Ulasan();
-//                ulasan.setIdwisata(getString(wisata.getId()));
+//                ulasan.setIdwisata(idWisata.getText().toString());
                 ulasan.setReview(review.getText().toString());
                 ulasan.setIduser(idUser.getText().toString());
                 daou.insertAll(ulasan);
 
-                Intent intent = new Intent(UlasanActivity.this, UlasanActivity.class);
+                Intent intent = new Intent(UlasanActivity.this, MainActivity.class);
                 finishAffinity();
                 startActivity(intent);
             }
