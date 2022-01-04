@@ -2,6 +2,7 @@ package com.example.visitapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,7 @@ public class UlasanActivity extends AppCompatActivity {
 
         SharedPrefManager sharedPrefManager = new SharedPrefManager(this);
         dao = MyApp.getInstance().getDatabase().userDao();
-//        daou = MyApp.getInstance().getDatabase().ulasanDao();
+        daou = MyApp.getInstance().getDatabase().ulasDao();
         if (getIntent() != null) {
             int id = getIntent().getIntExtra(TAG_DATA_INTENT, 0);
             wisata = dao.findById(id);
@@ -57,17 +58,21 @@ public class UlasanActivity extends AppCompatActivity {
 
         judul.setText(wisata.getJudul());
         lokasi.setText(wisata.getLokasi());
-//        idWisata.setText(wisata.getId());
+//        idWisata.setText(getString(wisata.getId()));
         idUser.setText(sharedPrefManager.getId());
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                ulasan = new Ulasan();
-////                ulasan.setIdwisata(wisata.getId());
-//                ulasan.setReview(review.getText().toString());
-//                ulasan.setIduser(idUser.getText().toString());
-//                daou.insertAll(ulasan);
+                ulasan = new Ulasan();
+//                ulasan.setIdwisata(getString(wisata.getId()));
+                ulasan.setReview(review.getText().toString());
+                ulasan.setIduser(idUser.getText().toString());
+                daou.insertAll(ulasan);
+
+                Intent intent = new Intent(UlasanActivity.this, UlasanActivity.class);
+                finishAffinity();
+                startActivity(intent);
             }
         });
 

@@ -18,16 +18,23 @@ import android.widget.TextView;
 
 import com.example.visitapp.adapter.RecyclerViewAdapter;
 import com.example.visitapp.database.db.MyApp;
+import com.example.visitapp.database.entity.Ulasan;
 import com.example.visitapp.database.entity.Wisata;
 import com.example.visitapp.ui.AddDataActivity;
 import com.example.visitapp.ui.ViewDataActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileFragment extends Fragment {
     ImageView ivUser;
     TextView tvUsername, tvPassword;
     Button btnLogout, btnEdit, btnInput;
+
+    RecyclerView ulasanRecycleview;
+    RecyclerViewAdapter recyclerAdapter;
+    List<Ulasan> ulasanList = new ArrayList<>();
+    private RecyclerViewAdapter adapter;
 
     @Nullable
     @Override
@@ -54,6 +61,16 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        ///Recycler View
+        ulasanRecycleview =(RecyclerView)getView().findViewById(R.id.ulasanRecyclerview);
+
+        adapter = new RecyclerViewAdapter();
+        ulasanRecycleview.setAdapter(adapter);
+        super.onResume();
+        List<Wisata> datas = MyApp.getInstance().getDatabase().userDao().getAll();
+        adapter.setData(datas);
 
 
         //set data ke activity
@@ -85,6 +102,7 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
 
 
 }
