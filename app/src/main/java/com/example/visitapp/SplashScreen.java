@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (sharedPrefManager.getIsLogin()){
-                    Intent i = new Intent(SplashScreen.this, ProfilActivity.class);
+                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
                     finishAffinity();
                     startActivity(i);
                 }else{

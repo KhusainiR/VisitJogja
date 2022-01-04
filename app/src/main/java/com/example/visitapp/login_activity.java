@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Fragment;
 
 public class login_activity extends AppCompatActivity {
     private Handler handler = new Handler();
@@ -68,7 +69,7 @@ public class login_activity extends AppCompatActivity {
                             Log.d("password", "pass" + password);
 
                             if (username.equals(spUsername) && password.equals(spPassword)){
-                                Intent i = new Intent(login_activity.this, ProfilActivity.class);
+                                Intent i = new Intent(login_activity.this, MainActivity.class);
                                 sharedPrefManager.saveIsLogin(true);
                                 finishAffinity();
                                 startActivity(i);

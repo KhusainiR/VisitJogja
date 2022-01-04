@@ -13,4 +13,7 @@
     <color name="primary2">#21959C</color>
     <color name="primary3">#F1A51B</color>
     <color name="second1">#5762FB </color>
+    <color name="colorPrimary">#18c0d4</color>
+    <color name="colorPrimaryDark">#18c0d4</color>
+    <color name="colorAccent">#7C7C7C</color>
 </resources>
