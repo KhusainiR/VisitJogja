@@ -12,20 +12,48 @@ public class SharedPrefManager {
         editor = sharedPreferences.edit();
     }
 
-    public String getUsername(){
-        return sharedPreferences.getString("sp_username", "qwerty");
-    }
+//    public String getUsername(){
+//        return sharedPreferences.getString("sp_username", "michaeljohn");
+//    }
+//    public String getEmail(){
+//        return sharedPreferences.getString("sp_username", "michaeljohn@gmail.com");
+//    }
+//
+//    public String getPassword(){
+//        return sharedPreferences.getString("sp_password", "12345");
+//    }
 
-    public String getPassword(){
-        return sharedPreferences.getString("sp_password", "12345");
+    public void saveId(String value){
+        editor.putString("sp_id", value);
+        editor.commit();
     }
 
     public String getId(){
-        return sharedPreferences.getString("sp_id", "1");
+        return sharedPreferences.getString("sp_id", "");
     }
 
+    public void saveUsername(String value){
+        editor.putString("sp_username", value);
+        editor.commit();
+    }
+
+    public String getUsername(){
+        return sharedPreferences.getString("sp_username", "");
+    }
+
+    public void saveEmail(String value){
+        editor.putString("sp_email", value);
+        editor.commit();
+    }
+
+    public String getEmail(){
+        return sharedPreferences.getString("sp_email", "");
+    }
+
+
+
     public String getFoto(){
-        return sharedPreferences.getString("sp_foto", "prof");
+        return sharedPreferences.getString("sp_foto", "profil");
     }
 
     public void saveIsLogin(Boolean value){

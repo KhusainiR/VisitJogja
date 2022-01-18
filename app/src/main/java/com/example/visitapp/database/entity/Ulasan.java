@@ -21,8 +21,8 @@ public class Ulasan {
     @ColumnInfo(name = "review")
     private String review ="";
 
-    @ColumnInfo(name = "rate")
-    private String rate ="";
+    @ColumnInfo(name = "bintang")
+    private String bintang = "";
 
 ////////////////////
 
@@ -65,10 +65,10 @@ public class Ulasan {
     }
 
 
-    public String getRate() {
-        return rate;
+    public String getBintang() {
+        return bintang;
     }
-    public void setRate(String rate) {
-        this.rate =rate;
+    public void setBintang(String bintang) {
+        this.bintang =bintang;
     }
 }

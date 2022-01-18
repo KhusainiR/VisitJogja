@@ -15,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Fragment;
 
+import com.example.visitapp.ui.ViewDataActivity;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -93,7 +95,7 @@ import retrofit2.Response;
 //}
 
 public class login_activity extends AppCompatActivity {
-
+    private SharedPrefManager sharedPrefManager;
     EditText username, password;
     Button btnLogin;
     private TextView tvSignUp;
@@ -102,6 +104,8 @@ public class login_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedPrefManager = new SharedPrefManager(this);
 
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
@@ -130,36 +134,66 @@ public class login_activity extends AppCompatActivity {
     }
 
     public void login(){
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername(username.getText().toString());
-        loginRequest.setPassword(password.getText().toString());
+        String user = username.getText().toString();
+        String pass = password.getText().toString();
+        if (user.equals("admin") &&  pass.equals("admin")){
+            Toast.makeText(login_activity.this,"Login Admin Successful", Toast.LENGTH_LONG).show();
+            sharedPrefManager.saveIsLogin(true);
+            sharedPrefManager.saveUsername(user);
+            Intent i = new Intent(login_activity.this, ViewDataActivity.class);
+            finishAffinity();
+            startActivity(i);
+        }else {
 
-        Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginRequest);
-        loginResponseCall.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.setUsername(username.getText().toString());
+            loginRequest.setPassword(password.getText().toString());
 
-                if(response.isSuccessful()){
-                    Toast.makeText(login_activity.this,"Login Successful", Toast.LENGTH_LONG).show();
-                    LoginResponse loginResponse =  response.body();
+            Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginRequest);
+            loginResponseCall.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(login_activity.this, MainActivity.class).putExtra("data", loginResponse.getUsername() ));
-                        }
-                    }, 700);
+                    if (response.isSuccessful()) {
+                        Toast.makeText(login_activity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                        LoginResponse loginResponse = response.body();
 
-                }else{
-                    Toast.makeText(login_activity.this,"Login Failed. Check Your Username or Password", Toast.LENGTH_LONG).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                sharedPrefManager.saveIsLogin(true);
+                                String idw = String.valueOf(loginResponse.getId());
+                                sharedPrefManager.saveId(idw);
+                                sharedPrefManager.saveUsername(loginResponse.getUsername());
+                                sharedPrefManager.saveEmail(loginResponse.getEmail());
+
+
+                                startActivity(new Intent(login_activity.this, MainActivity.class));
+
+//                            Intent i = new Intent(login_activity.this, MainActivity.class).putExtra("data", loginResponse.getUsername());
+//                            sharedPrefManager.saveIsLogin(true);
+//                            startActivity(i);
+                            }
+                        }, 700);
+
+                    } else {
+                        Toast.makeText(login_activity.this, "Login Failed. Check Your Username or Password", Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(login_activity.this,"Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+                //
+//            @Override
+//            public void onFailure(Call<LoginResponse> call, Throwable t) {
+//                Toast.makeText(login_activity.this,"Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//            }
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    Toast.makeText(login_activity.this, "Login Failed. Check Your Username or Password" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            });
+        }
     }
 
 

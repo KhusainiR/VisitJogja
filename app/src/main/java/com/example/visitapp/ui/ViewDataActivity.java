@@ -11,13 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.visitapp.R;
+import com.example.visitapp.SharedPrefManager;
 import com.example.visitapp.adapter.RecyclerViewAdapter;
 import com.example.visitapp.common.DataListListener;
 import com.example.visitapp.database.db.AppDatabase;
 import com.example.visitapp.database.db.MyApp;
+import com.example.visitapp.database.entity.Ulasan;
 import com.example.visitapp.database.entity.Wisata;
+import com.example.visitapp.login_activity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -27,13 +31,15 @@ public class ViewDataActivity extends AppCompatActivity {
     RecyclerView myRecycleview;
     RecyclerViewAdapter recyclerAdapter;
     List<Wisata> listWisata = new ArrayList<>();
-    FloatingActionButton fabAdd;
+    FloatingActionButton fabAdd, fabLogout;
     private RecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_data);
+
+        SharedPrefManager sharedPrefManager = new SharedPrefManager(this);
 
 
         myRecycleview = findViewById(R.id.myRecyclerview);
@@ -47,6 +53,11 @@ public class ViewDataActivity extends AppCompatActivity {
             public void onRemoveClick(Wisata wisata) {
                 adapter.removeData(wisata);
             }
+
+            @Override
+            public void onRemoveClick2(Ulasan ulasan) {
+
+            }
         });
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -55,9 +66,18 @@ public class ViewDataActivity extends AppCompatActivity {
                 startActivity(new Intent(ViewDataActivity.this, AddDataActivity.class));
             }
         });
-//        fetchDataFromRoom();
-//        initRecycleView();
-//        setAdapter();
+
+        fabLogout = findViewById(R.id.fabLogout);
+
+        fabLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPrefManager.saveIsLogin(false);
+                Toast.makeText(ViewDataActivity.this, "Berhasil Logout", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ViewDataActivity.this, login_activity.class));
+            }
+        });
+
     }
 
     @Override

@@ -7,7 +7,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.visitapp.database.entity.Ulasan;
-import com.example.visitapp.database.entity.Wisata;
 
 import java.util.List;
 
@@ -21,9 +20,9 @@ public interface UlasanDao {
     void insertAll(Ulasan ulasan);
 
     @Query("SELECT * FROM ulasan WHERE id LIKE :ulasanId LIMIT 1")
-    Wisata findById(int ulasanId);
+    Ulasan findById(int ulasanId);
 
-    @Query("SELECT * FROM ulasan WHERE id_wisata LIKE :id_wisata")
+    @Query("SELECT * FROM ulasan WHERE id_wisata LIKE :id_wisata LIMIT 3")
     List<Ulasan> getUlasan(String id_wisata);
 
     @Query("SELECT * FROM ulasan WHERE id_user LIKE :id_user")

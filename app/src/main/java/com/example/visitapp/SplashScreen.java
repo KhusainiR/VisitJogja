@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.visitapp.ui.ViewDataActivity;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -20,9 +22,15 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (sharedPrefManager.getIsLogin()){
-                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                    finishAffinity();
-                    startActivity(i);
+                    if (sharedPrefManager.getUsername().equals("admin")){
+                        Intent i = new Intent(SplashScreen.this, ViewDataActivity.class);
+                        finishAffinity();
+                        startActivity(i);
+                    }else {
+                        Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                        finishAffinity();
+                        startActivity(i);
+                    }
                 }else{
                     Intent i = new Intent(SplashScreen.this, login_activity.class);
                     finishAffinity();

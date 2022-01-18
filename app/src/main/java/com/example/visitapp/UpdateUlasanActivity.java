@@ -22,9 +22,9 @@ import com.example.visitapp.database.entity.Wisata;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UlasanActivity extends AppCompatActivity {
+public class UpdateUlasanActivity extends AppCompatActivity {
     TextView judul, lokasi, idWisata;
-    EditText  idUser, review;
+    EditText idUser, review;
     RatingBar rateWisata;
     ImageView fotoWisata, ivMaps, fotoProfil;
     public final static String TAG_DATA_INTENT = "data_wisata";
@@ -37,7 +37,7 @@ public class UlasanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ulasan);
+        setContentView(R.layout.activity_update_ulasan);
 
         SharedPrefManager sharedPrefManager = new SharedPrefManager(this);
         dao = MyApp.getInstance().getDatabase().userDao();
@@ -52,35 +52,30 @@ public class UlasanActivity extends AppCompatActivity {
         idUser = findViewById(R.id.idUser);
         fotoProfil = findViewById(R.id.fotoProfil);
 
-        Bundle bundle = getIntent().getExtras();
-        Integer getIdWisata = bundle.getInt("idWisata");
+        if (getIntent() != null) {
+            int id = getIntent().getIntExtra(TAG_DATA_INTENT, 0);
+            ulasan = daou.findById(id);
+        }
 
-        wisata = dao.findById(getIdWisata);
+        if (ulasan != null){
+            String idwis = String.valueOf(ulasan.getIdwisata()) ;
+            idWisata.setText(""+idwis);
+            idUser.setText(ulasan.getIduser());
+            review.setText(ulasan.getReview());
+            Integer idw = Integer.valueOf(ulasan.getIdwisata());
+            wisata = dao.findById(idw);
+            judul.setText(wisata.getJudul());
+            lokasi.setText(wisata.getLokasi());
+            idWisata.setVisibility(View.INVISIBLE);
+            idUser.setVisibility(View.INVISIBLE);
 
+            String namaImage =(wisata.getFoto()) ;
+            String uri = "@drawable/"+namaImage;  // where myresource (without the extension) is the file
 
-        String namaImage =(wisata.getFoto()) ;
-        String uri = "@drawable/"+namaImage;  // where myresource (without the extension) is the file
-
-        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-        Drawable res = getResources().getDrawable(imageResource);
-        fotoWisata.setImageDrawable(res);
-
-        Integer idw =(wisata.getId()) ;
-        judul.setText(wisata.getJudul());
-        lokasi.setText(wisata.getLokasi());
-        idWisata.setText(""+idw);
-        idUser.setText(sharedPrefManager.getUsername());
-        idWisata.setVisibility(View.INVISIBLE);
-        idUser.setVisibility(View.INVISIBLE);
-
-
-        String namaGambar =(sharedPrefManager.getFoto()) ;
-        String uril = "@drawable/"+namaGambar;  // where myresource (without the extension) is the file
-
-        int imageRes = getResources().getIdentifier(uril, null, getPackageName());
-        Drawable res1 = getResources().getDrawable(imageRes);
-        fotoProfil.setImageDrawable(res1);
-
+            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+            Drawable res = getResources().getDrawable(imageResource);
+            fotoWisata.setImageDrawable(res);
+        }
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,20 +83,19 @@ public class UlasanActivity extends AppCompatActivity {
                 String numberOfStars = String.valueOf(rateWisata.getRating());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
                 String currentDateandTime = sdf.format(new Date());
-                ulasan = new Ulasan();
                 ulasan.setIdwisata(idWisata.getText().toString());
                 ulasan.setReview(review.getText().toString());
                 ulasan.setIduser(idUser.getText().toString());
                 ulasan.setTanggal(currentDateandTime);
                 ulasan.setBintang(numberOfStars);
-                daou.insertAll(ulasan);
-                Toast.makeText(UlasanActivity.this, "Berhasil Menulis Ulasan", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UlasanActivity.this, MainActivity.class);
+                daou.update(ulasan);
+
+                Toast.makeText(UpdateUlasanActivity.this, "Berhasil Menyimpan Perubahan", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UpdateUlasanActivity.this, MainActivity.class);
                 finishAffinity();
                 startActivity(intent);
             }
         });
-
     }
 
 }

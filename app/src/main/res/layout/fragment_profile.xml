@@ -54,7 +54,8 @@
                     android:id="@+id/ivUser"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:src="@drawable/prof"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,69 +75,54 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:text="username"
                             android:fontFamily="@font/montserrat_semibold"
-                            android:text="Nama Username / Email"
                             android:textColor="@color/primary"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/tvPassword"
+                            android:id="@+id/tvEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:text="Email User"
                             android:textColor="@color/primary"
-                            android:textSize="12sp" />
+                            android:textSize="14sp" />
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/tvNomor"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:layout_marginTop="10dp"-->
-<!--                            android:text="Nomor Telepon User"-->
-<!--                            android:textColor="@color/primary"-->
-<!--                            android:textSize="12sp" />-->
-
-                        <Button
-                            android:id="@+id/btnEdit"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/primary2"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="edit"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <Button
-                            android:id="@+id/btnLogout"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/primary1"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Log Out"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-
-                        <Button
-                            android:id="@+id/btnInput"
+                            android:orientation="horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/primary3"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Input Wisata"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/btnEdit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:backgroundTint="@color/primary2"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Edit"
+                                android:layout_marginRight="20dp"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <Button
+                                android:id="@+id/btnLogout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:backgroundTint="@color/primary3"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Log Out"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -148,15 +134,21 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
             android:layout_marginBottom="10dp">
 
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/kotak"/>
+
             <TextView
+                android:layout_marginLeft="7dp"
                 android:id="@+id/kategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,17 +157,16 @@
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:padding="10dp"-->
-<!--            android:id="@+id/ulasanRecyclerview"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
+        </androidx.recyclerview.widget.RecyclerView>
 
-<!--        </androidx.recyclerview.widget.RecyclerView>-->
 
 
     </LinearLayout>

@@ -19,6 +19,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Input Data Wisata"
+    android:textColor="@color/primary"
     android:textSize="24sp"
     android:layout_marginBottom="20dp"
     android:fontFamily="@font/montserrat_bold"/>
@@ -46,27 +47,39 @@
             android:hint="deskripsi"
             android:inputType="text|textMultiLine"/>
 
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama file foto harus sama dengan file di folder drawable"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/primary"/>
+
         <EditText
             android:id="@+id/etFoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="nama file foto"/>
 
-        <EditText
-            android:id="@+id/etMaps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="link maps"/>
 
-        <EditText
-            android:id="@+id/etKategori"
+        <TextView
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tulis kategori misal pantai/candi"/>
+            android:text="Kategori Wisata"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/primary"/>
+
+        <Spinner
+            android:id="@+id/Kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:entries="@array/kategori" />
 
         <Button
             android:id="@+id/btnSave"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/teal_700"

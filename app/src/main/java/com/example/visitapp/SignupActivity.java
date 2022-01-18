@@ -87,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
 
                 if(response.isSuccessful()){
-                    Toast.makeText(SignupActivity.this,"Login Successful", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this,"Sign Up Successful", Toast.LENGTH_LONG).show();
                     SignupResponse signupResponse =  response.body();
 
                     new Handler().postDelayed(new Runnable() {

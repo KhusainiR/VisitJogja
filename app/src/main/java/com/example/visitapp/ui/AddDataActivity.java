@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.visitapp.R;
@@ -18,8 +19,9 @@ import com.example.visitapp.database.entity.Wisata;
 
 public class AddDataActivity extends AppCompatActivity implements View.OnClickListener {
     public final static String TAG_DATA_INTENT = "data_wisata";
-    EditText etJudul, etLokasi, etDeskripsi, etFoto, etMaps, etKategori;
+    EditText etJudul, etLokasi, etDeskripsi, etFoto, etMaps;
     Wisata wisata;
+    Spinner Kategori;
     Button btnTambah;
     private WisataDao dao;
 
@@ -40,17 +42,13 @@ public class AddDataActivity extends AppCompatActivity implements View.OnClickLi
         etLokasi = findViewById(R.id.etLokasi);
         etDeskripsi = findViewById(R.id.etDeskripsi);
         etFoto = findViewById(R.id.etFoto);
-        etMaps = findViewById(R.id.etMaps);
-        etKategori = findViewById(R.id.etKategori);
+        Kategori = findViewById(R.id.Kategori);
 
         if (wisata != null){
             etJudul.setText(wisata.getJudul());
             etLokasi.setText(wisata.getLokasi());
             etDeskripsi.setText(wisata.getDeskripsi());
             etFoto.setText(wisata.getFoto());
-            etMaps.setText(wisata.getMaps());
-            etKategori.setText(wisata.getKategori());
-
             btnTambah.setText("Update Data");
         }
         btnTambah.setOnClickListener(this);
@@ -95,7 +93,6 @@ public class AddDataActivity extends AppCompatActivity implements View.OnClickLi
         wisata.setLokasi(etLokasi.getText().toString());
         wisata.setDeskripsi(etDeskripsi.getText().toString());
         wisata.setFoto(etFoto.getText().toString());
-        wisata.setMaps(etMaps.getText().toString());
-        wisata.setKategori(etKategori.getText().toString());
+        wisata.setKategori(Kategori.getItemAtPosition(Kategori.getSelectedItemPosition()).toString());
     }
 }

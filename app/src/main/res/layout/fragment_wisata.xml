@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingBottom="50dp">
+    android:paddingBottom="50dp"
+    android:backgroundTint="@color/background">
 
 
     <RelativeLayout
@@ -48,12 +49,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/judul"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Wisata Daerah Istimewa Yogyakarta"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Kunjungi Tempat Wisata Pilihanmu"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
         </RelativeLayout>
+
 
     </RelativeLayout>
 
